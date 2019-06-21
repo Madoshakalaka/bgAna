@@ -25,8 +25,11 @@ img = cv2.imread('/home/matt/studyResource/.secretWeebFolder/waifu_no_435.jpg')
 res = analyze_bg(img) # img can be just a filename or an np.ndarray as shown here. caution: color is in BGR
 
 
->>> print(type(res), res)
+>>> print(type(res[0]), res[0])
 np.ndarray [125,125,125]
+>>> print(type(res[1]), res[1])
+str "gray"
+
 ```
 
 It also creates command line executable entry point by default
