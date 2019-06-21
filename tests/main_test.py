@@ -21,14 +21,15 @@ class MyTestCase(unittest.TestCase):
         """
         in case scipy changes how it behaves
         """
-        res = main.get_mode_of_margin(cv2.imread(path.join('examples', 'random.jpg')))
-        self.assertTrue(np.array_equal(res, (18,18,20)))
+        res = main.get_mode(cv2.imread(path.join('examples', 'random.jpg')))
+        print('xx', res, 'xx')
+        self.assertTrue(np.array_equal(res, (26,21,23)))
 
     def test_cmd(self):
         cmd = ' '.join((sys.executable, path.join('..','bgAna','main.py'), path.join('examples','random.jpg')))
         p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, _ = p.communicate()
-        self.assertTrue(stdout.decode(encoding='utf-8').strip().endswith('[18 18 20]'))
+        self.assertTrue(stdout.decode(encoding='utf-8').strip().endswith('[26 21 23]'))
 
     def tearDown(self) -> None:
 

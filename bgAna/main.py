@@ -59,8 +59,8 @@ class ImageLike:
         return parsed_obj
 
 
-def get_mode_of_margin(img: np.ndarray) -> np.ndarray:
-    return stats.mode(np.concatenate((img[0], img[-1], img[:, 0], img[:, -1])))[0][0]
+def get_mode(img: np.ndarray) -> np.ndarray:
+    return stats.mode(img.reshape((img.shape[0]*img.shape[1],3)))[0][0]
 
 
 def cmd():
@@ -94,7 +94,7 @@ def analyze_bg(img: Union[str, np.ndarray]) -> np.ndarray:
     :return: color in BGR
     """
     img = ImageLike.parse_img(img).get_np_img()
-    return get_mode_of_margin(img)
+    return get_mode(img)
 
 
 if __name__ == "__main__":
