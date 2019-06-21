@@ -22,7 +22,9 @@ jobs:
 
     - stage: deploy
 
+      # override
       before_install: "" # don't do any thing
+      script: "" # don't do any thing
 
       deploy:
         provider: pypi
