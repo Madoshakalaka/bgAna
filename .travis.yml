@@ -2,17 +2,12 @@ language: python
 dist: xenial # required to use python 3.7
 before_install: "export PYTHONPATH=$PYTHONPATH:$(pwd)" # hack to make package importable from test module
 script:
-  - pytest tests/*.py
+  - python -m pytest tests/*.py
 
 python:
   - "3.7"
   - "3.6"
   - "3.5"
-
-os:
-  - osx
-  - linux
-  - windows
 
 stages:
   - test
@@ -20,11 +15,12 @@ stages:
 
 
 jobs:
-  include: # run with 3 different python versions in parallel
+  include:
+
+    # default test stage will run with 3 different python versions in parallel
 
     - stage: deploy
-
-      # needs to override matrix expansion
+      # needs to override matrix expansion cuz we only want one deployment job
       before_install: "" # don't do any thing
       script: "" # don't do any test
       python: "" # nope
