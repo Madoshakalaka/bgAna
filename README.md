@@ -9,6 +9,10 @@ It's useful when you want to embed image in a bigger frame. This can be used to 
 
 It does a pretty good job
 
+![showcase1](https://raw.githubusercontent.com/Madoshakalaka/bgAna/master/readme_assets/showcase1.png)
+![showcase1](https://raw.githubusercontent.com/Madoshakalaka/bgAna/master/readme_assets/showcase2.png)
+
+
 ## How to Use
 
 It supports python 3.5 3.6 3.7 and most possibly future versions
