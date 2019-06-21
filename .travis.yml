@@ -4,6 +4,16 @@ before_install: "export PYTHONPATH=$PYTHONPATH:$(pwd)" # hack to make package im
 script:
   - pytest tests/*.py
 
+python:
+  - "3.7"
+  - "3.6"
+  - "3.5"
+
+os:
+  - osx
+  - linux
+  - windows
+
 stages:
   - test
   - deploy
@@ -12,21 +22,13 @@ stages:
 jobs:
   include: # run with 3 different python versions in parallel
 
-    - stage: test
-
-      python:
-      - "3.7"
-      - "3.6"
-      - "3.5"
-
-      os:
-      - osx
-      - linux
-
-
     - stage: deploy
+
+      # needs to override matrix expansion
       before_install: "" # don't do any thing
       script: "" # don't do any test
+      python: "" # nope
+      os: linux # yeah
       deploy:
         provider: pypi
         user: Madoshakalaka
