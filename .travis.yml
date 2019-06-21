@@ -12,11 +12,15 @@ stages:
 jobs:
   include: # run with 3 different python versions in parallel
 
-    - python: "3.7"
+    - stage: test
 
-    - python: "3.6"
-
-    - python: "3.5"
+      python:
+        - "3.5"
+        - "3.6"
+        - "3.7"
+      os:
+        - linux
+        - osx
 
     - stage: deploy
       before_install: "" # don't do any thing
