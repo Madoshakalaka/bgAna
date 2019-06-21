@@ -7,6 +7,8 @@ It's useful when you want to embed image in a bigger frame. This can be used to 
 
 ## Showcase
 
+It does a pretty good job
+
 ## How to Use
 
 It supports python 3.5 3.6 3.7 and most possibly future versions
