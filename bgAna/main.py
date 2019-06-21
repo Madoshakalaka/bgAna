@@ -2,11 +2,13 @@
 import argparse
 import os
 from sys import stderr
-from typing import List, Union
+from typing import List, Union, Tuple
 from scipy import stats
 
 import cv2
 import numpy as np
+
+from bgAna import color_name_finder
 
 
 class ImageParsingError(Exception):
@@ -84,17 +86,18 @@ def cmd():
         print("can't parse image")
 
     else:
-        print("background color (BGR): ", res)
+        print("background color (BGR): ", tuple(res[0]), res[1])
 
 
-def analyze_bg(img: Union[str, np.ndarray]) -> np.ndarray:
+def analyze_bg(img: Union[str, np.ndarray]) -> Tuple[np.ndarray, str]:
     """
 
     :param img: filename or ndarray
     :return: color in BGR
     """
     img = ImageLike.parse_img(img).get_np_img()
-    return get_mode(img)
+    res = get_mode(img)
+    return res, color_name_finder.ColorNames.findNearestWebColorName(res[::-1])
 
 
 if __name__ == "__main__":
