@@ -30,5 +30,5 @@ You should be able to run the following commands anywhere.
 - `$ bgAna thonk.png`
     - output: `(125, 125, 125)`
 
-- `$ iconGen -h` for more help
+- `$ bgAna -h` for more help
 
