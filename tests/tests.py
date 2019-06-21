@@ -11,6 +11,12 @@ from bgAna import main
 
 
 class MyTestCase(unittest.TestCase):
+    oldDir = ""
+
+    def setUp(self) -> None:
+        MyTestCase.oldDir = os.getcwd()
+        os.chdir(os.path.dirname(__file__))
+
     def test_mode_getting(self):
         """
         in case scipy changes how it behaves
@@ -24,6 +30,9 @@ class MyTestCase(unittest.TestCase):
         stdout, _ = p.communicate()
         self.assertTrue(stdout.decode(encoding='utf-8').strip().endswith('[18 18 20]'))
 
+    def tearDown(self) -> None:
+
+        os.chdir(MyTestCase.oldDir)
 
 if __name__ == '__main__':
     unittest.main()
