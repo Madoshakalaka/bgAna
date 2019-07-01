@@ -13,7 +13,6 @@ jobs:
   - python: '3.5'
   - stage: deploy
     install: ''
-    before_install: ''
     script: ''
     deploy:
       provider: pypi
