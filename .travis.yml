@@ -1,6 +1,6 @@
 language: python
 dist: xenial
-before_install: export PYTHONPATH=$PYTHONPATH:$(pwd)
+install: pip install -e .
 script:
 - pytest
 stages:
