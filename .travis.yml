@@ -12,6 +12,7 @@ jobs:
   - python: '3.6'
   - python: '3.5'
   - stage: deploy
+    install: ''
     before_install: ''
     script: ''
     deploy:
